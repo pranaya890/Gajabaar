@@ -200,4 +200,103 @@ curl -LsSf https://astral.sh/uv/0.12.21/install.sh | sh
 uv 0.12.21 (x86_64-unknown-linux-gnu)
 ```
 
+
+### Creating Python project
+
+```
+uv init --no-package challenge1
+```
+- creates a new Python project without creating it as an installable Python package.
+
+
+### Adding a dependency
+- adding pwntools
+- `uv add pwntools`
+- The first error was:
+
+```
+error: [Errno 2] No such file or directory: 'cmake'
+```
+
+- I installed CMake using:
+
+```
+sudo apt install cmake
+```
+
+- After that, the build progressed further but another error appeared:
+
+```
+ERROR: pkg-config binary 'pkg-config' not found
+```
+
+- I installed the required build tools:
+
+```
+sudo apt install build-essential pkg-config
+```
+
+- After installing these dependencies, I ran:
+
+```
+uv add pwntools
+```
+
+again and the package was successfully installed.
+
+### What I Learned from the Error
+
+Some Python packages contain native C/C++ components and may need system-level build tools when a pre-built package is not available for the current environment.
+
+In this case, `unicorn`, which is a dependency of `pwntools`, required additional build tools.
 ### Displaying Hello World using UV
+- `nano solve.py` and wrote the code to print `Hello Gajabaar`
+- `uv run solve.py`
+```
+Hello Gajabaar
+```
+
+>[!Important]
+> | Command                           | Purpose                                            |
+| --------------------------------- | -------------------------------------------------- |
+| `uv --version`                    | Check the installed uv version                     |
+| `uv init --no-package challenge1` | Create a Python project                            |
+| `cd challenge1`                   | Enter the project directory                        |
+| `uv add pwntools`                 | Add a Python dependency                            |
+| `uv run solve.py`                 | Run a Python program using the project environment |
+| `uv run python`                   | Start Python using the project's environment       |
+
+
+###  Obsidian
+
+## Installation
+
+Obsidian is a Markdown-based note-taking application. It is being used in this program to maintain notes and document my learning progress.
+
+Obsidian was already installed on my system, so no additional installation was required.
+
+## Creating the Project Vault
+
+I created a new Obsidian vault for the program. The vault will contain all my notes, exercises, and learning progress throughout the program.
+
+## Note Taking
+
+I will take notes while working through each topic instead of writing everything at the end.
+
+For each topic, I will record:
+
+- Important concepts
+    
+- Commands and examples
+    
+- Practical work I performed
+    
+- Problems and errors encountered
+    
+- Solutions to those problems
+    
+- What I learned
+    
+
+The Obsidian vault will be tracked using Git and submitted as the final GitHub repository.
+
